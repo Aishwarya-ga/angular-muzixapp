@@ -1,0 +1,12 @@
+<mat-card class="example-card" >
+  <mat-card-header >
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{trackname}}</mat-card-title>
+    <mat-card-subtitle>{{trackartist}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{image}} alt="Photo of a Shiba Inu">
+  <mat-card-actions>
+      <button mat-mini-fab color="primary" (click) = addToWishlist()>ADD</button>
+    <!-- <button mat-button>SHARE</button> -->
+  </mat-card-actions>
+</mat-card> 

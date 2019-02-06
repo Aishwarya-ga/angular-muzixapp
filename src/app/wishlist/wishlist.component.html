@@ -1,0 +1,26 @@
+<!-- <div>
+<button (click) = "getAll()">Click</button>
+<ul *ngIf="allTracks">
+    <ol  *ngFor="let search of allTracks">
+      {{search.trackName}}--{{search.trackArtist}}
+    </ol>
+</ul>
+</div> -->
+<div>
+  <button (click) = "getAll()">CLICK</button>
+  <app-wishlistcard [url] = allTracks ></app-wishlistcard>
+</div>
+<!-- <div>
+<mat-card class="example-card" *ngIf="allTracks">
+    <mat-card-header *ngFor="let search of allTracks">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{search.trackName}}</mat-card-title>
+      <mat-card-subtitle>{{search.trackArtist}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{search.imageUrl}} alt="Photo of a Shiba Inu">
+    <mat-card-actions>
+        <button mat-mini-fab color="primary" >Delete</button>
+      
+    </mat-card-actions>
+  </mat-card> 
+  </div> -->

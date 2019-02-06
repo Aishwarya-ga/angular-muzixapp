@@ -1,0 +1,18 @@
+<div *ngIf="url">
+  <div *ngFor="let search of url">
+    <mat-card class="example-card" >
+      <mat-card-header >
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{search.trackName}}</mat-card-title>
+        <mat-card-subtitle>{{search.trackArtist}}</mat-card-subtitle>
+      </mat-card-header>
+    <img mat-card-image src={{search.imageUrl}} alt="Photo of a Shiba Inu">
+    <mat-card-actions>
+        <button mat-mini-fab color="primary" (click) = deleteMuzix(search.trackId)>Delete</button>
+        <!-- <button mat-mini-fab color="primary">Update</button> -->
+      <!-- <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+    <app-update [trackId] = search.trackId></app-update>
+  </mat-card> 
+  </div>
+  </div>
