@@ -1,12 +1,17 @@
-<mat-card class="example-card" >
-  <mat-card-header >
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{trackname}}</mat-card-title>
-    <mat-card-subtitle>{{trackartist}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src={{image}} alt="Photo of a Shiba Inu">
-  <mat-card-actions>
-      <button mat-mini-fab color="primary" (click) = addToWishlist()>ADD</button>
-    <!-- <button mat-button>SHARE</button> -->
-  </mat-card-actions>
-</mat-card> 
+<div class="cardList">
+    <ul *ngIf="searchdata">
+        <ol *ngFor="let search of searchdata" id="mydiv">
+            <div class='md-padding' style="display:inline-block">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title> {{search.name}}</mat-card-title>
+                        <mat-card-subtitle>{{search.artist}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src={{getImage(search)}} alt="Photo of a Shiba Inu">
+                    <app-wishlist [trackname]=search.name [trackartist]=search.artist [image]=getImage(search) [id]=search.listeners></app-wishlist>
+                </mat-card>
+            </div>
+        </ol>
+    </ul>
+</div>

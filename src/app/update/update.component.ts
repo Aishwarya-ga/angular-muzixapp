@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update',
@@ -12,12 +13,13 @@ export class UpdateComponent implements OnInit {
   trackId
 
   result : string
-  constructor(private http : HttpClient) { }
+  
+  constructor(private http : HttpClient, private router : Router) { }
 
   ngOnInit() {
   }
 
-  updateComment(comment){
+  updatecomment(comment){
     this.result = "http://localhost:8080/api/v1/muzix/"+this.trackId;
     this.http.put(this.result,{
       "comment" : comment
@@ -28,6 +30,7 @@ export class UpdateComponent implements OnInit {
     error  => {
     console.log("Error", error);
   });
+  
 }
 
 }

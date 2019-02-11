@@ -3,12 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CardComponent } from './card/card.component';
 import { NavigationComponent } from './navigation/navigation.component';
+// import { SearchTrackComponent } from './search-track/search-track.component';
+import { WishlistcardComponent } from './wishlistcard/wishlistcard.component';
 
 const routes: Routes = [
   {path : 'navigation', component : NavigationComponent},
   {path : 'wishlist', component:  WishlistComponent },
-  {path : 'card' , component :  CardComponent}
-  // {path : 'card', component: CardComponent}
+  {path : 'showcard/:trackname' , component :  CardComponent},
+  {path : 'show', component :  WishlistcardComponent}
+  
 ];
 
 @NgModule({

@@ -1,65 +1,22 @@
- <!-- <div style="background-color: brown;height: 35px;">
-
- <form>
-  <input type="text" name="value" [(ngModel)]="value"/>
-  <button (click)="Search(value)">SEARCH</button>
-</form> 
-<ul *ngIf="searchdata">
-  <ol  *ngFor="let search of searchdata"><app-card [trackname]=search.name [trackartist]=search.artist [image]=getImage(search) [id]=search.listeners></app-card>
-  </ol>
-</ul> 
-</div> -->
-<!-- <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<form class="example" >
-  <input type="text" placeholder="Search.." name="value" [(ngModel)]="value">
-  <button type="submit" (click)="Search(value)"><i class="fa fa-search"></i></button>
-  
-</form>
-<ul *ngIf="searchdata">
-    <ol  *ngFor="let search of searchdata"><app-card [trackname]=search.name [trackartist]=search.artist [image]=getImage(search) [id]=search.listeners></app-card>
-    </ol>
-  </ul>  -->
-
-
+<router-outlet>
 <!DOCTYPE html>
 <html>
+
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 
 <body>
-<div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#contact" routerLink='/wishlist'>WishList</a>
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="value" [(ngModel)]="value">
-      <button type="submit" (click)="Search(value)"><i class="fa fa-search"></i></button>
-    </form>
+  <div class="topnav">
+    <a style="font-family: 'Abril Fatface', cursive;" href="/">MUZIX APP</a>
+    <a routerLink='/show'>WishList</a>
+    <div class="search-container">
+      <app-presearch></app-presearch>
+    </div>
   </div>
-</div>
-
-<div class="cardList">
-    <ul *ngIf="searchdata">
-        <ol  *ngFor="let search of searchdata">
-          <app-card class="cardListItem" [trackname]=search.name [trackartist]=search.artist [image]=getImage(search) [id]=search.listeners></app-card>
-        </ol>
-    </ul> 
-</div>
 </body>
+
 </html>
-<router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-
-
-
+</router-outlet>

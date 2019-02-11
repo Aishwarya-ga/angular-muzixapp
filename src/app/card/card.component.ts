@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MuzixService } from '../muzix.service';
 
 @Component({
   selector: 'app-card',
@@ -8,45 +10,48 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class CardComponent implements OnInit {
 
-  @Input() 
-  trackname : String
-  @Input() 
-  trackartist : String
-  @Input() 
-  image : String
-  @Input()
-  id : number
-
-  comment : String=""
   
+  searchdata;
+  public trackname;
+  muzix : string;
 
-  constructor(private http : HttpClient) { }
-
+  constructor(private muzixService: MuzixService,private _router : ActivatedRoute, private router : Router) { }
+  // Search(value){  // Search(value){  // Search(v  // Search(value){
+  //   this.muzix = value;
+  //   this.muzixService.getMuzix(this.muzix).subscribe((data) => {
+  //     // console.log("incoming data is ", data['results']['trackmatches']['track']);
+  //     this.searchdata = data['results']['trackmatches']['track'];
+  //   });
+  // }alue){
+  //   this.muzix = value;
+  //   this.muzixService.getMuzix(this.muzix).subscribe((data) => {
+  //     // console.log("incoming data is ", data['results']['trackmatches']['track']);
+  //     this.searchdata = data['results']['trackmatches']['track'];
+  //   });
+  // }
+  //   this.muzix = value;
+  //   this.muzixService.getMuzix(this.muzix).subscribe((data) => {
+  //     // console.log("incoming data is ", data['results']['trackmatches']['track']);
+  //     this.searchdata = data['results']['trackmatches']['track'];
+  //   });
+  // }
+  //   this.muzix = value;
+  //   this.muzixService.getMuzix(this.muzix).subscribe((data) => {
+  //     // console.log("incoming data is ", data['results']['trackmatches']['track']);
+  //     this.searchdata = data['results']['trackmatches']['track'];
+  //   });
+  // }
   ngOnInit() {
+    this.trackname = this._router.snapshot.paramMap.get('trackname');
+    this.muzixService.getMuzix(this.trackname).subscribe((data) => {
+      this.searchdata =data['results']['trackmatches']['track'];
+    });
   }
 
-  addToWishlist(){
-    this.http.post("http://localhost:8080/api/v1/muzix",
-    {
-      "trackId": +this.id,
-      "trackName": this.trackname,
-      "trackArtist": this.trackartist,
-      "imageUrl": this.image,
-      "comment" : "Sung by : "+this.trackartist
-    },
-    {
-      headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
-    })
-  })
-  .subscribe(data  => {
-      console.log("POST Request is successful ", data);
-    },
-    error  => {
-    console.log("Error", error);
-});
-  
-}
+  getImage(search){
+    return search['image'][3]['#text']
+  }
+
+//  
 
 }

@@ -1,10 +1,26 @@
 .example-card {
     max-width: 300px;
     margin-top : 10px;
+    
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('src/assets/images/Screen_Shot_2018_08_08_at_6.54.35_PM.0.png');
     background-size: cover;
   }
+  .cardList{
+    margin: 0px;
+    box-sizing: border-box;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 70px;
+
+}
+#mydiv{
+  display: inline-block;
+  padding-right: 10px;
+}
+
   
+
+

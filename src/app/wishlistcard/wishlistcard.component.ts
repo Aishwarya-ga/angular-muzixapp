@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
+import { MuzixService } from '../muzix.service';
 
 @Component({
   selector: 'app-wishlistcard',
@@ -8,13 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WishlistcardComponent implements OnInit {
 
-  @Input()
-  url 
-
   delete;
-  constructor(private http : HttpClient) { }
+  allTracks ;
+
+  constructor(private http : HttpClient,private muzixService : MuzixService) { }
 
   ngOnInit() {
+    this.muzixService.getWishlistMuzix().subscribe((data) =>{
+      this.allTracks = data;
+      console.log(this.allTracks);
+    })
   }
 
   deleteMuzix(id){

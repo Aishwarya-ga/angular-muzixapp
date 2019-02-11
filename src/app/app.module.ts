@@ -16,6 +16,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { WishlistcardComponent } from './wishlistcard/wishlistcard.component';
 import {MatInputModule} from '@angular/material/input';
 import { UpdateComponent } from './update/update.component';
+import { PresearchComponent } from './presearch/presearch.component';
+
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { UpdateComponent } from './update/update.component';
     CardComponent,
     WishlistComponent,
     WishlistcardComponent,
-    UpdateComponent
+    UpdateComponent,
+    PresearchComponent,
+   
   ],
   imports: [
     BrowserModule,
